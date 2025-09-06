@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Nhận Key</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: #f5f5f5;
+            padding: 50px;
+        }
+        
+        .box {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            display: inline-block;
+        }
+        
+        .key {
+            font-size: 22px;
+            font-weight: bold;
+            color: #007bff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <h2>🔑 Key của bạn</h2>
+        <p class="key" id="key">Đang tải...</p>
+        <p>Dùng key này để nhập vào bot.</p>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const key = urlParams.get("key");
+        document.getElementById("key").innerText = key ? key : "Không tìm thấy key!";
+    </script>
+</body>
+
+</html>
