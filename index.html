@@ -11,7 +11,7 @@
             background: #f5f5f5;
             padding: 50px;
         }
-        
+
         .box {
             background: white;
             padding: 20px;
@@ -19,7 +19,7 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
             display: inline-block;
         }
-        
+
         .key {
             font-size: 22px;
             font-weight: bold;
@@ -37,8 +37,15 @@
 
     <script>
         const urlParams = new URLSearchParams(window.location.search);
-        const key = urlParams.get("key");
-        document.getElementById("key").innerText = key ? key : "Không tìm thấy key!";
+        const uid = urlParams.get("uid"); // lấy user_id từ URL
+
+        if (uid) {
+            const today = new Date().getDate(); // ngày trong tháng (1-31)
+            const expectedKey = "sms" + (parseInt(uid) * today - 126 * today);
+            document.getElementById("key").innerText = expectedKey;
+        } else {
+            document.getElementById("key").innerText = "Không tìm thấy user_id!";
+        }
     </script>
 </body>
 
