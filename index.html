@@ -37,15 +37,9 @@
 
     <script>
         const urlParams = new URLSearchParams(window.location.search);
-        const uid = urlParams.get("uid"); // lấy user_id từ URL
+        const key = urlParams.get("key"); // lấy giá trị sau ?key=
 
-        if (uid) {
-            const today = new Date().getDate(); // ngày trong tháng (1-31)
-            const expectedKey = "sms" + (parseInt(uid) * today - 126 * today);
-            document.getElementById("key").innerText = expectedKey;
-        } else {
-            document.getElementById("key").innerText = "Không tìm thấy user_id!";
-        }
+        document.getElementById("key").innerText = key ? key : "Không tìm thấy key!";
     </script>
 </body>
 
